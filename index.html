@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Employee Directory Search — Mock UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">Employee Directory Search</div>
+  <nav>
+    <a href="#" class="nav-link active" data-view="login">Login</a>
+    <a href="#" class="nav-link" data-view="dashboard">Dashboard</a>
+    <a href="#" class="nav-link" data-view="admin">Admin</a>
+    <a href="#" class="nav-link" data-view="apidoc">API Docs</a>
+  </nav>
+</header>
+
+<main class="container">
+  <!-- LOGIN -->
+  <section id="view-login" class="card login-wrap">
+    <div class="login-box card">
+      <h1>Employee Directory Search</h1>
+      <div class="field">
+        <label>Email</label>
+        <input id="login-email" type="email" placeholder="user@example.com" value="admin@company.com" />
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input id="login-pass" type="password" placeholder="Enter password" value="password" />
+      </div>
+      <div class="field">
+        <button class="primary" id="login-btn">Login</button>
+      </div>
+      <div class="muted-sm">Use <strong>admin@company.com</strong> / <strong>password</strong> to login as admin for demo.</div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="view-dashboard" style="display:none">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h2 style="margin:0">Directory</h2>
+        <div class="muted-sm">Logged in as: <span id="current-user">Guest</span></div>
+      </div>
+      <div class="search-row">
+        <input id="global-search" type="text" placeholder="Search by name, skill or email" />
+        <div class="filters">
+          <select id="filter-dept">
+            <option value="">All Departments</option>
+            <option>Engineering</option>
+            <option>HR</option>
+            <option>Sales</option>
+            <option>Design</option>
+          </select>
+          <select id="filter-role">
+            <option value="">All Roles</option>
+            <option>Manager</option>
+            <option>Senior</option>
+            <option>Junior</option>
+          </select>
+          <button class="tiny-btn" id="clear-filters">Clear</button>
+        </div>
+      </div>
+      <div id="results" class="results"></div>
+    </div>
+  </section>
+
+  <!-- ADMIN -->
+  <section id="view-admin" style="display:none">
+    <div class="card">
+      <div class="toolbar">
+        <div>
+          <h2 style="margin:0">Admin Panel</h2>
+          <div class="muted-sm">Manage employee records (Create, Edit, Delete)</div>
+        </div>
+        <div class="flex">
+          <button class="tiny-btn" id="import-sample">Import Sample</button>
+          <button class="primary" id="add-employee-btn">Add Employee</button>
+        </div>
+      </div>
+      <table id="employees-table" class="card">
+        <thead>
+          <tr><th>Name</th><th>Email</th><th>Department</th><th>Position</th><th>Phone</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="employees-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- API DOCS -->
+  <section id="view-apidoc" style="display:none">
+    <div class="card">
+      <h2>API Documentation (Mock)</h2>
+      <p class="muted-sm">Example REST endpoints for the Employee Directory Search system.</p>
+      <div class="api-list">
+        <pre>
+POST /api/register
+  Body: { "name": "John Doe", "email": "john@company.com", "password": "xxxx" }
+
+POST /api/login
+  Body: { "email": "john@company.com", "password": "xxxx" }
+  Response: { token: "JWT_TOKEN" }
+
+GET /api/employees
+  Query: ?page=1&limit=10&q=alice&department=Engineering
+  Response: {
+    data: [ { _id, name, email, department, position, phone } ],
+    page, total
+  }
+
+GET /api/employees/:id
+  Response: { _id, name, email, department, position, phone, skills, managerId }
+
+POST /api/employees  (Admin only)
+  Body: { name, email, department, position, phone, skills }
+
+PUT /api/employees/:id  (Admin only)
+DELETE /api/employees/:id  (Admin only)
+        </pre>
+      </div>
+      <h3>Swagger / OpenAPI Notes</h3>
+      <p class="muted-sm">Include auth: bearer token, rate-limiting guidance, and example cURL snippets in your final docs.</p>
+    </div>
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="modal" class="modal-back">
+  <div class="modal card">
+    <div id="modal-body"></div>
+    <div class="controls">
+      <button class="tiny-btn" id="modal-close">Close</button>
+    </div>
+  </div>
+</div>
+
+<footer>Mock UI — light grayscale — generated as HTML mockups for presentation</footer>
+<script src="script.js"></script>
+</body>
+</html>
