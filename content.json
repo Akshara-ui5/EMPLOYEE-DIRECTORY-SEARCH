@@ -1,0 +1,42 @@
+[
+  {
+    "id": "e1",
+    "name": "Alice Johnson",
+    "email": "alice@company.com",
+    "department": "Engineering",
+    "position": "Senior Engineer",
+    "phone": "+91 9876543210",
+    "skills": ["React", "Node.js"],
+    "managerId": null
+  },
+  {
+    "id": "e2",
+    "name": "Bob Smith",
+    "email": "bob@company.com",
+    "department": "HR",
+    "position": "HR Manager",
+    "phone": "+91 9123456780",
+    "skills": ["People Ops"],
+    "managerId": null
+  },
+  {
+    "id": "e3",
+    "name": "Claire Lee",
+    "email": "claire@company.com",
+    "department": "Sales",
+    "position": "Account Executive",
+    "phone": "+91 9988776655",
+    "skills": ["Negotiation"],
+    "managerId": "e2"
+  },
+  {
+    "id": "e4",
+    "name": "David Kim",
+    "email": "david@company.com",
+    "department": "Design",
+    "position": "Product Designer",
+    "phone": "+91 9001122334",
+    "skills": ["Figma", "UX"],
+    "managerId": null
+  }
+]
